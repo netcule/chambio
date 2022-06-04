@@ -189,7 +189,7 @@ public class WikiService
 
             foreach (string filteredCategory in filteredCategories)
             {
-                Ideology? ideology = await _context.Ideologies
+                Ideology ideology = await _context.Ideologies
                     .FirstOrDefaultAsync(i => i.Name == filteredCategory,
                         cancellationToken) ?? new(filteredCategory);
 
