@@ -193,7 +193,8 @@ public class WikiService
                     .FirstOrDefaultAsync(i => i.Name == filteredCategory,
                         cancellationToken) ?? new(filteredCategory);
 
-                party.Ideologies!.Add(ideology);
+                if (!party.Ideologies!.Contains(ideology))
+                    party.Ideologies!.Add(ideology);
 
                 updatedIdeologies.Add(ideology);
             }
